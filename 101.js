@@ -61,18 +61,25 @@ var average = function(numberOne, numberTwo) {
 console.assert(average(8,12) === 10)
 console.assert(average(100,200) === 150)
 
-/**
- * PART 3
- *
- * Modify your sum function so that if either of its
- inputs is not a number, it will return "null."
- */
+// *
+//  * PART 3
+//  *
+//  * Modify your sum function so that if either of its
+//  inputs is not a number, it will return "null."
+
+var sum = function(numberOne, numberTwo) {
+    if ((typeof numberOne !== 'number') || (typeof numberTwo !== 'number')) {
+        return null
+    } else {
+        var addition = (numberOne + numberTwo)
+        return addition
+    }
+}
 
 
-
-// console.assert(sum(867, 5309) === 6176);
-// console.assert(sum('867', 5309) === null);
-// console.assert(sum(true, 5) === null);
+console.assert(sum(867, 5309) === 6176);
+console.assert(sum('867', 5309) === null);
+console.assert(sum(true, 5) === null);
 
 
 // Part 4
