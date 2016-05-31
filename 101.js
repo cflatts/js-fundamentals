@@ -36,6 +36,11 @@ console.assert(doubleNum(5) === 10)
  * inputs and computes the sum of those two numbers.
  */
 
+var sum = function(numberOne, numberTwo) {
+    var addition = numberOne + numberTwo
+    console.log('result from sum>>>', addition)
+    return addition
+}
 
 console.assert(sum(8, 11) === 19);
 console.assert(sum(4, 100) === 104);
@@ -47,6 +52,11 @@ console.assert(sum(4, 100) === 104);
 // repeating yourself, use your sum function inside
 // of your average function.
 
+var average = function(numberOne, numberTwo) {
+    var avg = sum(numberOne, numberTwo) / 2
+    console.log(avg)
+    return avg
+}
 
 console.assert(average(8,12) === 10)
 console.assert(average(100,200) === 150)
