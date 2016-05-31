@@ -105,6 +105,14 @@ console.assert(isNegative(-999) === true)
 // To avoid repeating yourself, use your isNegative
 // function inside your sum funciton ***
 
+var sum = function(numberOne, numberTwo) {
+    var negative = isNegative(numberOne, numberTwo)
+        if (negative === false) {
+            return null
+        }
+}
+
+
 console.assert(sum(5,-5) === null)
 
 
