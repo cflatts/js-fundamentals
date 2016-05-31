@@ -69,15 +69,24 @@ console.assert(average(100,200) === 150)
  */
 
 
-console.assert(sum(867, 5309) === 6176);
-console.assert(sum('867', 5309) === null);
-console.assert(sum(true, 5) === null);
+
+// console.assert(sum(867, 5309) === 6176);
+// console.assert(sum('867', 5309) === null);
+// console.assert(sum(true, 5) === null);
 
 
 // Part 4
 
 // Write a function called isNegative that will tell
 // whether a number is negative or not.
+
+var isNegative = function(number) {
+    if (number < 0) {
+        return true
+    } else {
+        return false
+    }
+}
 
 console.assert(isNegative(10) === false)
 console.assert(isNegative(0) === false)
