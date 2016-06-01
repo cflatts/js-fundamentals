@@ -118,12 +118,36 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
 
+var minimum = function (numOne, numTwo, numThree, numFour) {
+    if (numOne < numTwo) {
+        if (numOne < numThree) {
+            if (numOne < numFour) {
+                return numOne
+            }
+        }
+    } else if (numTwo < numThree) {
+        if (numTwo < numFour) {
+            return numTwo
+        }
+    } else if (numThree < numOne) {
+        if (numThree < numTwo) {
+            if (numThree < numFour) {
+                return numThree
+            }
+        }
+    } else if (numFour < numOne) {
+        if (numFour < numTwo) {
+            if (numFour < numThree) {
+                return numFour
+            }
+        }
+    }
+}
 
-
-// console.assert(minimum(1,2,4,0) === 0)
-// console.assert(minimum(1000,-2,-99,50) === -99)
-// console.assert(minimum(-1000,-2,-99,50) === -1000)
-// console.assert(minimum(1000,-2,99,50) === -2)
+console.assert(minimum(1,2,4,0) === 0)
+console.assert(minimum(1000,-2,-99,50) === -99)
+console.assert(minimum(-1000,-2,-99,50) === -1000)
+console.assert(minimum(1000,-2,99,50) === -2)
 
 
 // Part 7
@@ -171,13 +195,13 @@ var doubleGlobalNumber = function() {
 
 var doTwice = function(incrementGlobalNumber) {
     var first = incrementGlobalNumber(),
-        second = incrementGlobalNumber(second)
+        second = incrementGlobalNumber(first)
     return second
 }
 
 var doTwice = function(doubleGlobalNumber) {
     var first = doubleGlobalNumber(),
-        second = doubleGlobalNumber(second)
+        second = doubleGlobalNumber(first)
     return second
 }
 
