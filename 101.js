@@ -10,7 +10,6 @@
 // Write a function called addOne() that returns the input number, plus one.
 var addOne = function(input) {
     var result = input + 1
-    console.log('result from addOne>>>', result)
     return result
 }
 
@@ -22,7 +21,6 @@ console.assert(addOne(1) === 2)
 
 var doubleNum = function(num) {
 	var newNum = num * 2
-    console.log('result from newNum>>>>', newNum)
     return newNum
 }
 
@@ -38,7 +36,6 @@ console.assert(doubleNum(5) === 10)
 
 var sum = function(numberOne, numberTwo) {
     var addition = numberOne + numberTwo
-    console.log('result from sum>>>', addition)
     return addition
 }
 
@@ -54,7 +51,6 @@ console.assert(sum(4, 100) === 104);
 
 var average = function(numberOne, numberTwo) {
     var avg = sum(numberOne, numberTwo) / 2
-    console.log(avg)
     return avg
 }
 
@@ -122,10 +118,10 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
 
-console.assert(minimum(1,2,4,0) === 0)
-console.assert(minimum(1000,-2,-99,50) === -99)
-console.assert(minimum(-1000,-2,-99,50) === -1000)
-console.assert(minimum(1000,-2,99,50) === -2)
+// console.assert(minimum(1,2,4,0) === 0)
+// console.assert(minimum(1000,-2,-99,50) === -99)
+// console.assert(minimum(-1000,-2,-99,50) === -1000)
+// console.assert(minimum(1000,-2,99,50) === -2)
 
 
 // Part 7
@@ -133,6 +129,18 @@ console.assert(minimum(1000,-2,99,50) === -2)
 // Using logical operators, write a function that will
 // return true if either input is a string, but not
 // both or neither.
+
+var justOneString = function (inputOne, inputTwo) {
+    var decision
+    if (typeof inputOne === 'string' && typeof inputTwo === 'string') {
+        decision = false
+    } else if (typeof inputOne === 'string' || typeof inputTwo === 'string') {
+        decision = true
+    } else {
+        decision = false
+    }
+    return decision
+}
 
 console.assert(justOneString('a',5) === true)
 console.assert(justOneString(6,'dotron') === true)
