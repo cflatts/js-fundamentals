@@ -170,13 +170,13 @@ var doubleGlobalNumber = function() {
 }
 
 var doTwice = function(incrementGlobalNumber) {
-    var first = incrementGlobalNumber(NUMBER),
+    var first = incrementGlobalNumber(),
         second = incrementGlobalNumber(second)
     return second
 }
 
 var doTwice = function(doubleGlobalNumber) {
-    var first = doubleGlobalNumber(NUMBER),
+    var first = doubleGlobalNumber(),
         second = doubleGlobalNumber(second)
     return second
 }
