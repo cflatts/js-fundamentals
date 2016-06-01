@@ -118,6 +118,8 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
 
+
+
 // console.assert(minimum(1,2,4,0) === 0)
 // console.assert(minimum(1000,-2,-99,50) === -99)
 // console.assert(minimum(-1000,-2,-99,50) === -1000)
@@ -165,6 +167,18 @@ var incrementGlobalNumber = function(){
 
 var doubleGlobalNumber = function() {
 	NUMBER = NUMBER * 2
+}
+
+var doTwice = function(incrementGlobalNumber) {
+    var first = incrementGlobalNumber(NUMBER),
+        second = incrementGlobalNumber(second)
+    return second
+}
+
+var doTwice = function(doubleGlobalNumber) {
+    var first = doubleGlobalNumber(NUMBER),
+        second = doubleGlobalNumber(second)
+    return second
 }
 
 doTwice(incrementGlobalNumber)
