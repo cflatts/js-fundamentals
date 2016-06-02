@@ -26,17 +26,21 @@ var maxOfArray = function(nums) {
          var max = nums[1]
          }
      for (var i= 2; i < nums.length; i++) {
-         var testNum = nums[i]
-         if( testNum > max) {
-             max = testNum
-         }
-     }
-     return max
- }
+         if(typeof nums[i] === 'number') {
+            var testNum = nums[i]
+            if( testNum > max) {
+                 max = testNum
+            }
+        } else {
+            max = NaN
+        }
+ } return max
+}
+
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
-// console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
+console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
 
 /**
 
@@ -68,6 +72,17 @@ Define a function reverse() that computes
 the reversal of a string. For example,
 reverse("skoob") should return the
 string "books". */
+
+var reverse = function(sentence) {
+    var backwards = ''
+    var parts = sentence.split('')
+    for(var i = parts.length - 1; i >= 0; i--) {
+        backwards += parts[i]
+    }
+    return backwards
+}
+
+
 console.assert(reverse("books") === "skoob")
 console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
 
@@ -90,7 +105,7 @@ console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
 Part 5 *
 Write a function findLongestWord() that takes a string of words and returns the longest word.
 i.e. findLongestWord("a book full of dogs") should return "book" */
-function findLongestWord(sentence){ // YOUR CODE HERE }
+// function findLongestWord(sentence){ // YOUR CODE HERE }
 
 console.assert(findLongestWord("a book full of dogs") === "book")
 console.assert(findLongestWord("don't mess with Texas") === "Texas")
