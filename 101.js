@@ -1,3 +1,19 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @cflatts
+ Unwatch 1
+  Star 0
+  Fork 0 cflatts/js-fundamentals
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathjs-fundamentals/101.js
+5e8a190  40 minutes ago
+ Caitlin Flattery (part 5,9)
+0 contributors
+RawBlameHistory     245 lines (175 sloc)  5.6 KB
 
 // Example
 
@@ -20,7 +36,7 @@ console.assert(addOne(1) === 2)
 // Fix the following code so that the assertion passes.
 
 var doubleNum = function(num) {
-	var newNum = num * 2
+    var newNum = num * 2
     return newNum
 }
 
@@ -118,30 +134,16 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
 
-var minimum = function (numOne, numTwo, numThree, numFour) {
-    if (numOne < numTwo) {
-        if (numOne < numThree) {
-            if (numOne < numFour) {
-                return numOne
-            }
-        }
-    } else if (numTwo < numThree) {
-        if (numTwo < numFour) {
-            return numTwo
-        }
-    } else if (numThree < numOne) {
-        if (numThree < numTwo) {
-            if (numThree < numFour) {
-                return numThree
-            }
-        }
-    } else if (numFour < numOne) {
-        if (numFour < numTwo) {
-            if (numFour < numThree) {
-                return numFour
-            }
-        }
-    }
+var minimum = function (num1, num2, num3, num4) {
+    if ( (num1 < num2 && num1 < num3 && num1 < num4) ) {
+       return num1
+   } else if ( (num2 < num1 && num2 < num3 && num2 < num4) ) {
+       return num2
+   } else if ( (num3 < num1 && num3 < num2 && num3 < num4) ) {
+       return num3
+   } else {
+       return num4
+   }
 }
 
 console.assert(minimum(1,2,4,0) === 0)
@@ -186,13 +188,12 @@ console.assert(justOneString(8,null) === false)
 var NUMBER = 10
 
 var incrementGlobalNumber = function(){
-	NUMBER = NUMBER + 1
+    NUMBER = NUMBER + 1
 }
 
 var doubleGlobalNumber = function() {
-	NUMBER = NUMBER * 2
+    NUMBER = NUMBER * 2
 }
-
 var doTwice = function(incrementGlobalNumber) {
     var first = incrementGlobalNumber(),
         second = incrementGlobalNumber(first)
@@ -211,6 +212,7 @@ console.assert(NUMBER === 12)
 doTwice(doubleGlobalNumber)
 console.assert(NUMBER === 48)
 
+
 // Part 9
 
 // Write a function called conditionallyInvoke that takes a function
@@ -219,6 +221,14 @@ console.assert(NUMBER === 48)
 // "YES." Otherwise, it will does nothing.
 
 var ORACLE = 'NO'
+
+var conditionallyInvoke = function(doubleGlobalNumber) {
+    if (ORACLE === 'YES') {
+        return doubleGlobalNumber()
+    } else {
+        return doubleGlobalNumber
+    }
+}
 
 conditionallyInvoke(doubleGlobalNumber)
 console.assert(NUMBER === 48)
@@ -248,3 +258,5 @@ console.assert(factory2()(999) === 999)
 console.assert(factory3('i have reached function nirvana')() === 'i have reached function nirvana')
 console.assert(factory3(100)() === 100)
 
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
