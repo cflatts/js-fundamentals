@@ -95,6 +95,23 @@ write a function the returns a FizzBuzz string for some number N (counting up fr
 - for every number that is a multiple of 5 (but not 3), return "buzz"
 - for every number that is a multiple of 3 and 5, return "fizzbuzz" */
 
+var fizzbuzz = function(N) {
+    var words = ''
+    for(var i = 1; i <= N; i++){
+        var wordOnThisIteration
+        if(i % 3 !== 0 && i % 5 !== 0) {
+            wordOnThisIteration = '.'
+        }else if (i % 3 === 0 && i % 5 !== 0) {
+            wordOnThisIteration = 'fizz'
+        }else if (i % 3 !== 0 && i % 5 === 0) {
+            wordOnThisIteration = 'buzz'
+        }else {
+            wordOnThisIteration = 'fizzbuzz'
+        }
+        words = words + wordOnThisIteration
+    } return words
+}
+
 
 
 console.assert(fizzbuzz(1) === ".")
