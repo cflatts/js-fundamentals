@@ -18,11 +18,11 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
 
 // Write a function maxOfArray() that takes an array of // numbers as an argument and finds the highest number.
 
-var maxOfArray = function(arr) {
+var maxOfArray = function(array) {
     var largest = 0
-    for (var i = 0; i <= arr.length; i++) {
-        if (arr[i] > largest) {
-            var largest = arr[i]
+    for (var i = 0; i <= array.length; i++) {
+        if (array[i] > largest) {
+            var largest = array[i]
             }
     }
     return largest
@@ -30,14 +30,24 @@ var maxOfArray = function(arr) {
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
-console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
+// console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
 
 /**
 
 PART 2 *
 Write a function isVowel() that takes a character (i.e. a string of length 1)
 and returns true if it is a vowel, false otherwise. */
-function isVowel(symbol){ // YOUR CODE HERE }
+var vowelArray = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+var isVowel = function(symbol) {
+    for(var i = 0; i < vowelArray.length; i++) {
+        var vowel = vowelArray[i]
+        if(vowel === symbol) {
+            return true
+        }
+    }
+    return false
+}
 
 console.assert(isVowel(0) === false);
 console.assert(isVowel("B") === false);

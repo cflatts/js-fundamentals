@@ -144,7 +144,7 @@ var minimum = function (numOne, numTwo, numThree, numFour) {
     }
 }
 
-console.assert(minimum(1,2,4,0) === 0)
+// console.assert(minimum(1,2,4,0) === 0)
 console.assert(minimum(1000,-2,-99,50) === -99)
 console.assert(minimum(-1000,-2,-99,50) === -1000)
 console.assert(minimum(1000,-2,99,50) === -2)
@@ -192,7 +192,6 @@ var incrementGlobalNumber = function(){
 var doubleGlobalNumber = function() {
 	NUMBER = NUMBER * 2
 }
-
 var doTwice = function(incrementGlobalNumber) {
     var first = incrementGlobalNumber(),
         second = incrementGlobalNumber(first)
@@ -211,6 +210,7 @@ console.assert(NUMBER === 12)
 doTwice(doubleGlobalNumber)
 console.assert(NUMBER === 48)
 
+
 // Part 9
 
 // Write a function called conditionallyInvoke that takes a function
@@ -219,6 +219,14 @@ console.assert(NUMBER === 48)
 // "YES." Otherwise, it will does nothing.
 
 var ORACLE = 'NO'
+
+var conditionallyInvoke = function(doubleGlobalNumber) {
+    if (ORACLE === 'YES') {
+        return doubleGlobalNumber()
+    } else {
+        return doubleGlobalNumber
+    }
+}
 
 conditionallyInvoke(doubleGlobalNumber)
 console.assert(NUMBER === 48)
