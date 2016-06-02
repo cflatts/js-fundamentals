@@ -18,15 +18,21 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
 
 // Write a function maxOfArray() that takes an array of // numbers as an argument and finds the highest number.
 
-var maxOfArray = function(array) {
-    var largest = 0
-    for (var i = 0; i <= array.length; i++) {
-        if (array[i] > largest) {
-            var largest = array[i]
-            }
-    }
-    return largest
-}
+var maxOfArray = function(nums) {
+     if(nums[0] > nums[1]) {
+         var max = nums[0]
+         }
+     else {
+         var max = nums[1]
+         }
+     for (var i= 2; i < nums.length; i++) {
+         var testNum = nums[i]
+         if( testNum > max) {
+             max = testNum
+         }
+     }
+     return max
+ }
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
