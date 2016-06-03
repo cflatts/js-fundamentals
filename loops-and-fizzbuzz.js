@@ -152,6 +152,16 @@ console.assert(findLongestWord("don't mess with Texas") === "Texas")
 PART 6 *
 write a function that returns the Greatest Common Denominator of two numbers
 - if no GCD exists, return 1 */
+
+ var GCD = function(numOne, numTwo) {
+    while (numTwo != 0) {
+        var denominator = numOne % numTwo
+        numOne = numTwo
+        numTwo = denominator
+    }
+    return numOne
+}
+
 console.assert(GCD(5,1) === 1);
 console.assert(GCD(15,3) === 3);
 console.assert(GCD(15,5) === 5);
