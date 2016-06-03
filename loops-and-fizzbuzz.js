@@ -128,8 +128,6 @@ i.e. findLongestWord("a book full of dogs") should return "book" */
 
 
 var findLongestWord = function(input) {
-    var words = input.replace(/[^a-zA-Z 0-9]+/g,'')
-    words = words.split(' ')
         if(words.length[0] > words.length[1]) {
             var longest = words[0]
         } else {
