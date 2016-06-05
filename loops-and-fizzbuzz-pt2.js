@@ -19,6 +19,22 @@ console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") =
 console.assert(nicer("here son, your crappy sandwich is on the dang plate.") === "here son, your sandwich is on the plate.")
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
+//
+var capitalizeAll = function(string) {
+    var newArray = string.split(' ')
+    var cappedWord = []
+    // log(newArray)
+    for(var i = 0; i < newArray.length; i++) {
+        var cappedFirstLetter = newArray[i][0].toUpperCase()
+        // log(cappedFirstLetter)
+        log(typeof(cappedFirstLetter))
+//         great, logged first letters. now can you log full capitalized words?
+         cappedWord = cappedFirstLetter.concat(newArray[i].substring(1, newArray[i].length))
+             // log(typeof(cappedWord))
+         var allCapped = cappedWord.join()
+        }
+}
+
 
 console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
@@ -29,6 +45,12 @@ var paragraph = 'it was a fine morning. the wine was good. light slanted in thro
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
+
+var iPutTheFunIn = function (input) {
+    var funWord = 'fun'
+    var fullFunWord = input.substr(0, (input.length / 2)) + funWord + input.substr((input.length / 2), input.length)
+    return fullFunWord
+}
 
 console.assert(iPutTheFunIn("funerary") === "funefunrary")
 console.assert(iPutTheFunIn("reds") === "refunds")
