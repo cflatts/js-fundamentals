@@ -13,6 +13,22 @@ console.assert(squareDance([5,10,15])[2] === 225)
 console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
+//
+
+// PART 1: write a function called nicer(). It should clean up the language in its input sentence.
+
+var nicer = function(input) {
+ var meanArray = input.split(' ')
+ // log(meanArray)
+ for(var i = 0; i < meanArray.length; i++) {
+  if(meanArray[i] !== 'heck' || meanArray[i] !== 'darn' || meanArray[i] !== 'crappy' || meanArray[i] !== 'dang') {
+   var niceArray = meanArray.splice()
+   log(niceArray)
+  }
+ }
+}
+
+
 
 console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
 
@@ -20,19 +36,13 @@ console.assert(nicer("here son, your crappy sandwich is on the dang plate.") ===
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
 //
+
 var capitalizeAll = function(string) {
     var newArray = string.split(' ')
-    var cappedWord = []
-    // log(newArray)
     for(var i = 0; i < newArray.length; i++) {
-        var cappedFirstLetter = newArray[i][0].toUpperCase()
-        // log(cappedFirstLetter)
-        log(typeof(cappedFirstLetter))
-//         great, logged first letters. now can you log full capitalized words?
-         cappedWord = cappedFirstLetter.concat(newArray[i].substring(1, newArray[i].length))
-             // log(typeof(cappedWord))
-         var allCapped = cappedWord.join()
-        }
+        newArray[i] = newArray[i].charAt(0).toUpperCase() + newArray[i].substring(1)
+        var allCaps = newArray.join(' ')
+        } return allCaps
 }
 
 
