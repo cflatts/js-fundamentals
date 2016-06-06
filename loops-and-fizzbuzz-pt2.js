@@ -1,19 +1,18 @@
 // PART 0: Write a function called squareDance() that squares each number in an array.
 //
 
-var squareDance = function(number) {
-    for(var i = 0; i < number.length; i++) {
-        var squaredNumber = number[i]*number[i]
-        }return squaredNumber
-}
+// var squareDance = function(number) {
+//     for(var i = 0; i < number.length; i++) {
+//         var squaredNumber = number[i]*number[i]
+//         }return squaredNumber
+// }
 
 
-console.assert(squareDance([1, 2])[1] === 4)
-console.assert(squareDance([5,10,15])[2] === 225)
-console.assert(squareDance([3,6,9,3])[0] === 9)
+// console.assert(squareDance([1, 2])[1] === 4)
+// console.assert(squareDance([5,10,15])[2] === 225)
+// console.assert(squareDance([3,6,9,3])[0] === 9)
 
-// PART 1: write a function called nicer(). It should clean up the language in its input sentence.
-//
+
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
 
@@ -29,41 +28,54 @@ var nicer = function(input) {
 }
 
 
-
 console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
 
 console.assert(nicer("here son, your crappy sandwich is on the dang plate.") === "here son, your sandwich is on the plate.")
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
-//
 
-var capitalizeAll = function(string) {
-    var newArray = string.split(' ')
-    for(var i = 0; i < newArray.length; i++) {
-        newArray[i] = newArray[i].charAt(0).toUpperCase() + newArray[i].substring(1)
-        var allCaps = newArray.join(' ')
-        } return allCaps
-}
+// var capitalizeAll = function(string) {
+//     var splitString = string.split(' ')
+//     for(var i = 0; i < splitString.length; i++) {
+//         splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1)
+//         var allCaps = splitString.join(' ')
+//         } return allCaps
+// }
 
 
-console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
+// log(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
+
+
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
 
 var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
 
+var properSentences = function(paragraph) {
+ var brokenPeriods = paragraph.split('. ')
+ // log(brokenPeriods)
+    for(var i = 0; i < brokenPeriods.length; i++) {
+        var upperCase = brokenPeriods[i].substr(0,1).toUpperCase()
+        // log(upperCase)
+        var allUpperCase = upperCase + brokenPeriods[i].substr(1)
+        log(allUpperCase)
+        // log(typeof allUpperCase)
+    } return allUpperCase
+}
+
+
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
 
-var iPutTheFunIn = function (input) {
-    var funWord = 'fun'
-    var fullFunWord = input.substr(0, (input.length / 2)) + funWord + input.substr((input.length / 2), input.length)
-    return fullFunWord
-}
+// var iPutTheFunIn = function (input) {
+//     var funWord = 'fun'
+//     var fullFunWord = input.substr(0, (input.length / 2)) + funWord + input.substr((input.length / 2), input.length)
+//     return fullFunWord
+// }
 
-console.assert(iPutTheFunIn("funerary") === "funefunrary")
-console.assert(iPutTheFunIn("reds") === "refunds")
+// console.assert(iPutTheFunIn("funerary") === "funefunrary")
+// console.assert(iPutTheFunIn("reds") === "refunds")
 
 // PART 5: write a function called pipeline(). it should take three inputs: (1) a starting value, (2) a function, and (3) another function. it should use functions (2) and (3) on the starting value, one after the other, and return a new value that has been processed by both function (2) and function (3).
 
