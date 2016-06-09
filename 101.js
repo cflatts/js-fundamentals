@@ -1,19 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @cflatts
- Unwatch 1
-  Star 0
-  Fork 0 cflatts/js-fundamentals
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathjs-fundamentals/101.js
-5e8a190  40 minutes ago
- Caitlin Flattery (part 5,9)
-0 contributors
-RawBlameHistory     245 lines (175 sloc)  5.6 KB
 
 // Example
 
@@ -24,9 +8,10 @@ RawBlameHistory     245 lines (175 sloc)  5.6 KB
 // Part EXAMPLE
 
 // Write a function called addOne() that returns the input number, plus one.
-var addOne = function(input) {
-    var result = input + 1
-    return result
+
+var addOne = function (inputNumber) {
+    inputNumber = inputNumber + 1
+    return inputNumber
 }
 
 console.assert(addOne(1) === 2)
@@ -35,9 +20,9 @@ console.assert(addOne(1) === 2)
 
 // Fix the following code so that the assertion passes.
 
-var doubleNum = function(num) {
-    var newNum = num * 2
-    return newNum
+var doubleNum = function (inputNumber) {
+    inputNumber = inputNumber * 2
+    return inputNumber
 }
 
 console.assert(doubleNum(5) === 10)
@@ -50,9 +35,9 @@ console.assert(doubleNum(5) === 10)
  * inputs and computes the sum of those two numbers.
  */
 
-var sum = function(numberOne, numberTwo) {
-    var addition = numberOne + numberTwo
-    return addition
+var sum = function( inputNum1, inputNum2 ) {
+    var addNum = inputNum1 + inputNum2
+    return addNum
 }
 
 console.assert(sum(8, 11) === 19);
@@ -65,9 +50,10 @@ console.assert(sum(4, 100) === 104);
 // repeating yourself, use your sum function inside
 // of your average function.
 
-var average = function(numberOne, numberTwo) {
-    var avg = sum(numberOne, numberTwo) / 2
-    return avg
+var average = function(inputNum1, inputNum2) {
+    var addedNum = (sum(inputNum1, inputNum2))
+    var avgNum = addedNum/2
+    return avgNum
 }
 
 console.assert(average(8,12) === 10)
@@ -79,15 +65,15 @@ console.assert(average(100,200) === 150)
 //  * Modify your sum function so that if either of its
 //  inputs is not a number, it will return "null."
 
-var sum = function(numberOne, numberTwo) {
-    if ((typeof numberOne !== 'number') || (typeof numberTwo !== 'number')) {
-        return null
+
+var sum = function( inputNum1, inputNum2 ) {
+    if(typeof inputNum1 === 'number' && typeof inputNum2 === 'number') {
+        var addNum = inputNum1 + inputNum2
+        return addNum
     } else {
-        var addition = (numberOne + numberTwo)
-        return addition
+        return null
     }
 }
-
 
 console.assert(sum(867, 5309) === 6176);
 console.assert(sum('867', 5309) === null);
@@ -99,10 +85,11 @@ console.assert(sum(true, 5) === null);
 // Write a function called isNegative that will tell
 // whether a number is negative or not.
 
-var isNegative = function(number) {
-    if (number < 0) {
+var isNegative = function (inputNum) {
+    if (inputNum < 0 ) {
         return true
-    } else {
+    }
+    else {
         return false
     }
 }
@@ -117,13 +104,14 @@ console.assert(isNegative(-999) === true)
 // To avoid repeating yourself, use your isNegative
 // function inside your sum funciton ***
 
-var sum = function(numberOne, numberTwo) {
-    var negative = isNegative(numberOne, numberTwo)
-        if (negative === false) {
-            return null
-        }
+var sum = function( inputNum1, inputNum2 ) {
+    if(isNegative()) {
+        var addNum = inputNum1 + inputNum2
+        return addNum
+    } else {
+        return null
+    }
 }
-
 
 console.assert(sum(5,-5) === null)
 
@@ -134,16 +122,16 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
 
-var minimum = function (num1, num2, num3, num4) {
-    if ( (num1 < num2 && num1 < num3 && num1 < num4) ) {
-       return num1
-   } else if ( (num2 < num1 && num2 < num3 && num2 < num4) ) {
-       return num2
-   } else if ( (num3 < num1 && num3 < num2 && num3 < num4) ) {
-       return num3
-   } else {
-       return num4
-   }
+var minimum = function(num1, num2, num3, num4) {
+    if(num1 < num2 && num1 < num3 && num1 < num4) {
+        return num1
+    } else if(num2 < num3 && num2< num4) {
+        return num2
+    } else if(num3 < num4) {
+        return num3
+    } else {
+        return num4
+    }
 }
 
 console.assert(minimum(1,2,4,0) === 0)
@@ -158,16 +146,14 @@ console.assert(minimum(1000,-2,99,50) === -2)
 // return true if either input is a string, but not
 // both or neither.
 
-var justOneString = function (inputOne, inputTwo) {
-    var decision
-    if (typeof inputOne === 'string' && typeof inputTwo === 'string') {
-        decision = false
-    } else if (typeof inputOne === 'string' || typeof inputTwo === 'string') {
-        decision = true
+var justOneString = function(input1, input2) {
+    if(typeof input1 === 'string' && typeof input2 ==='string') {
+        return false
+    } else if(typeof input1 !== 'string' && typeof input2 !== 'string') {
+        return false
     } else {
-        decision = false
+        return true
     }
-    return decision
 }
 
 console.assert(justOneString('a',5) === true)
@@ -194,16 +180,10 @@ var incrementGlobalNumber = function(){
 var doubleGlobalNumber = function() {
     NUMBER = NUMBER * 2
 }
-var doTwice = function(incrementGlobalNumber) {
-    var first = incrementGlobalNumber(),
-        second = incrementGlobalNumber(first)
-    return second
-}
 
-var doTwice = function(doubleGlobalNumber) {
-    var first = doubleGlobalNumber(),
-        second = doubleGlobalNumber(first)
-    return second
+var doTwice = function(inputFunc) {
+    inputFunc()
+    inputFunc()
 }
 
 doTwice(incrementGlobalNumber)
@@ -222,11 +202,9 @@ console.assert(NUMBER === 48)
 
 var ORACLE = 'NO'
 
-var conditionallyInvoke = function(doubleGlobalNumber) {
-    if (ORACLE === 'YES') {
-        return doubleGlobalNumber()
-    } else {
-        return doubleGlobalNumber
+var conditionallyInvoke = function (inputFunc) {
+    if(ORACLE === 'YES') {
+        inputFunc()
     }
 }
 
@@ -241,12 +219,25 @@ console.assert(NUMBER === 96)
 
 // Make the following assertion work:
 
-console.assert(factory()() === 'hello world')  // INCEPTION!
+var factory = function() {
+    var hello = function() {
+        return'hello world'
+    }
+    return hello
+}
 
+console.assert(factory()() === 'hello world')  // INCEPTION!
 
 // Part 11
 
 // Want more?
+
+var factory2 = function() {
+    var dog = function(inputString) {
+        return inputString
+    }
+    return dog
+}
 
 console.assert(factory2()('you sly dog') === 'you sly dog')
 console.assert(factory2()(999) === 999)
@@ -255,8 +246,12 @@ console.assert(factory2()(999) === 999)
 
 // This can't be healthy...
 
+var factory3 = function(inputString) {
+    var firstInput = function () {
+        return inputString
+    }
+    return firstInput
+}
+
 console.assert(factory3('i have reached function nirvana')() === 'i have reached function nirvana')
 console.assert(factory3(100)() === 100)
-
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help

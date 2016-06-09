@@ -1,4 +1,4 @@
-// NORMAL MODE ( 0 - 4 )
+ // NORMAL MODE ( 0 - 4 )
 
 
 // Part 0
@@ -137,12 +137,18 @@ Comic book creators, like all story-tellers, get great mileage out of myth and h
 
 
 var getCounts = function(inputString) {
-      var frequencyArray = {}
+      var frequencyObject = {}
       var inputArray = inputString.split(' ')
-      for(var i = 0; i < inputArray. length; i ++) {
-        var word = inputArray[i]
-        frequencyArray.word = frequencyArray.word + 1
-      }return frequencyArray
+      for(var i = 0; i < inputObject.length; i ++) {
+        var word = inputObject[i]
+        if( word !== 'undefined') {
+            frequencyArray[word] = frequencyArray[word] + 1
+          } else {
+            frequencyArray[word] =1
+          }
+      }
+
+      return frequencyArray
 
 }
 
