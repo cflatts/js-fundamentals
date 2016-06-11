@@ -1,10 +1,10 @@
 /*PART 0 *
 Write a function that calculates the sum of all the numbers in an array */
 
-var sumOfArray = function(arr){
+var sumOfArray = function(inputArray) {
     var sum = 0
-    for(var i=0; i< arr.length; i++) {
-        sum = sum + arr[i]
+    for(var i = 0; i < inputArray.length; i++) {
+        sum = sum + inputArray[i]
     }
     return sum
 }
@@ -16,27 +16,23 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
 
 // PART 1
 
-// Write a function maxOfArray() that takes an array of // numbers as an argument and finds the highest number.
+// Write a function maxOfArray() that takes an array of numbers as an argument and finds the highest number.
 
-var maxOfArray = function(nums) {
-     if(nums[0] > nums[1]) {
-         var max = nums[0]
-         }
-     else {
-         var max = nums[1]
-         }
-     for (var i= 2; i < nums.length; i++) {
-         if(typeof nums[i] === 'number') {
-            var testNum = nums[i]
-            if( testNum > max) {
-                 max = testNum
-            }
-        } else {
-            max = NaN
+var maxOfArray = function(inputArray) {
+    if(inputArray[0] > inputArray[1]) {
+        var max = inputArray[0]
+    } else {
+        var max = inputArray[1]
+    } for(var i = 2; i < inputArray.length; i++) {
+        if(typeof inputArray[i] !== 'number') {
+            return NaN
         }
- } return max
+        var testNum = inputArray[i]
+        if(testNum > max) {
+            max = testNum
+        }
+    } return max
 }
-
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
@@ -47,12 +43,13 @@ console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
 PART 2 *
 Write a function isVowel() that takes a character (i.e. a string of length 1)
 and returns true if it is a vowel, false otherwise. */
-var vowelArray = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
 
-var isVowel = function(symbol) {
-    for(var i = 0; i < vowelArray.length; i++) {
-        var vowel = vowelArray[i]
-        if(vowel === symbol) {
+var vowels = [ 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+var isVowel = function (inputString) {
+    for(var i = 0; i < vowels.length; i++) {
+        var vowelLetter = vowels[i]
+        if(inputString === vowelLetter) {
             return true
         }
     }
@@ -73,15 +70,14 @@ the reversal of a string. For example,
 reverse("skoob") should return the
 string "books". */
 
-var reverse = function(sentence) {
-    var backwards = ''
-    var parts = sentence.split('')
-    for(var i = parts.length - 1; i >= 0; i--) {
-        backwards += parts[i]
+var reverse = function (inputString) {
+    var backwardsInput = ''
+    for(var i = inputString.length - 1; i >= 0; i--) {
+        backwardsInput = backwardsInput + inputString[i]
+        log(backwardsInput)
     }
-    return backwards
+    return backwardsInput
 }
-
 
 console.assert(reverse("books") === "skoob")
 console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
@@ -95,23 +91,22 @@ write a function the returns a FizzBuzz string for some number N (counting up fr
 - for every number that is a multiple of 5 (but not 3), return "buzz"
 - for every number that is a multiple of 3 and 5, return "fizzbuzz" */
 
-var fizzbuzz = function(N) {
-    var words = ''
-    for(var i = 1; i <= N; i++){
-        var wordOnThisIteration
+var fizzbuzz = function (inputString) {
+    var symbolString = ''
+    for(var i = 1; i <= inputString; i++) {
         if(i % 3 !== 0 && i % 5 !== 0) {
-            wordOnThisIteration = '.'
-        }else if (i % 3 === 0 && i % 5 !== 0) {
-            wordOnThisIteration = 'fizz'
-        }else if (i % 3 !== 0 && i % 5 === 0) {
-            wordOnThisIteration = 'buzz'
-        }else {
-            wordOnThisIteration = 'fizzbuzz'
+           var symbol = '.'
+        } else if(i % 3 === 0 && i % 5 !== 0) {
+            varsymbol = 'fizz'
+        } else if(i % 3 !== 0 && i % 5 === 0) {
+           var symbol = 'buzz'
+        } else {
+           var symbol = 'fizzbuzz'
         }
-        words = words + wordOnThisIteration
-    } return words
+        symbolString = symbolString + symbol
+    }
+    return symbolString
 }
-
 
 
 console.assert(fizzbuzz(1) === ".")
@@ -127,21 +122,26 @@ Write a function findLongestWord() that takes a string of words and returns the 
 i.e. findLongestWord("a book full of dogs") should return "book" */
 
 
-var findLongestWord = function(input) {
-        if(words.length[0] > words.length[1]) {
-            var longest = words[0]
-        } else {
-            var longest = words[1]
-        for(var i = 0; i < words.length; i++) {
-            var testWord = words[i]
-            if(testWord.length > longest.length) {
-                longest = testWord
-            }
+
+var findLongestWord = function(inputString) {
+    var newString = inputString.split("'").join('')
+    var inputArray = newString.split(' ')
+    if(inputArray[0].length > inputArray[1].length) {
+        var max = inputArray[0]
+    } else {
+        var max = inputArray[1]
+    }
+    log(max)
+
+    for(var i = 2; i < inputArray.length; i++) {
+        var maxWord = inputArray[i]
+        if(maxWord.length > max.length) {
+            max = maxWord
         }
     }
-    return longest
-}
 
+    return max
+}
 
 console.assert(findLongestWord("a book full of dogs") === "book")
 console.assert(findLongestWord("don't mess with Texas") === "Texas")
@@ -152,14 +152,7 @@ PART 6 *
 write a function that returns the Greatest Common Denominator of two numbers
 - if no GCD exists, return 1 */
 
- var GCD = function(numOne, numTwo) {
-    while (numTwo != 0) {
-        var denominator = numOne % numTwo
-        numOne = numTwo
-        numTwo = denominator
-    }
-    return numOne
-}
+
 
 console.assert(GCD(5,1) === 1);
 console.assert(GCD(15,3) === 3);
