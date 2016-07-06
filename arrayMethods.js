@@ -44,6 +44,12 @@ console.assert(
 
 function map(array, callback){
     // YOUR CODE HERE
+    //
+    //     var newArray = []
+    for(var i = 0; i < array.length; i++) {
+        newArray.push(callback(array[i]))
+    }
+    return newArray
 }
 
 // tests
