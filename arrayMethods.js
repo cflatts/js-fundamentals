@@ -4,18 +4,18 @@
 // write your own forEach() function that takes an array and a function
 // ----------------------------
 
-function forEach(array, callback){
-    // YOUR CODE HERE
-    for (var i = 0; i < array.length; i ++) {
-        callback(array[i])
-    }
-}
+// function forEach(array, callback){
+//     // YOUR CODE HERE
+//     for (var i = 0; i < array.length; i ++) {
+//         callback(array[i])
+//     }
+// }
 
-// tests
-// ---
-var total = 1
-forEach([1, 2, 3, 4], function(a){ total *= a; })
-console.assert(total === 24)
+// // tests
+// // ---
+// var total = 1
+// forEach([1, 2, 3, 4], function(a){ total *= a; })
+// console.assert(total === 24)
 
 // ----------------------------
 // write your own reduce()
@@ -42,23 +42,23 @@ console.assert(
 // that takes an array and a function
 // ----------------------------
 
-function map(array, callback){
-    // YOUR CODE HERE
-    //
-    //     var newArray = []
-    for(var i = 0; i < array.length; i++) {
-        newArray.push(callback(array[i]))
-    }
-    return newArray
-}
+// function map(array, callback){
+//     // YOUR CODE HERE
+//     //
+//     //     var newArray = []
+//     for(var i = 0; i < array.length; i++) {
+//         newArray.push(callback(array[i]))
+//     }
+//     return newArray
+// }
 
-// tests
-// ---
-var squares = map([1, 2, 3, 4], function(v){ return v*v })
-console.assert(squares[0] === 1)
-console.assert(squares[1] === 4)
-console.assert(squares[2] === 9)
-console.assert(squares[3] === 16)
+// // tests
+// // ---
+// var squares = map([1, 2, 3, 4], function(v){ return v*v })
+// console.assert(squares[0] === 1)
+// console.assert(squares[1] === 4)
+// console.assert(squares[2] === 9)
+// console.assert(squares[3] === 16)
 
 // ----------------------------
 // write your own filter()
@@ -67,6 +67,14 @@ console.assert(squares[3] === 16)
 
 function filter(array, callback){
     // YOUR CODE HERE
+    var evenArray =[]
+    for(var i = 0; i < array.length; i++) {
+        if(array[i]%2 === 0) {
+            var even = array[i]
+            evenArray.push(even)
+        }
+    }
+    return evenArray
 }
 
 // tests
