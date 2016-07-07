@@ -4,18 +4,18 @@
 // write your own forEach() function that takes an array and a function
 // ----------------------------
 
-// function forEach(array, callback){
-//     // YOUR CODE HERE
-//     for (var i = 0; i < array.length; i ++) {
-//         callback(array[i])
-//     }
-// }
+function forEach(array, callback){
+    // YOUR CODE HERE
+    for (var i = 0; i < array.length; i ++) {
+        callback(array[i])
+    }
+}
 
-// // tests
-// // ---
-// var total = 1
-// forEach([1, 2, 3, 4], function(a){ total *= a; })
-// console.assert(total === 24)
+// tests
+// ---
+var total = 1
+forEach([1, 2, 3, 4], function(a){ total *= a; })
+console.assert(total === 24)
 
 // ----------------------------
 // write your own reduce()
@@ -24,6 +24,11 @@
 
 function reduce(array, callback){
     // YOUR CODE HERE
+    var accumulator = array[0]
+    for(var i = 1; i < array.length; i++){
+        accumulator = callback(accumulator,array[i])
+    }
+    return accumulator
 }
 
 // tests
@@ -42,46 +47,46 @@ console.assert(
 // that takes an array and a function
 // ----------------------------
 
-// function map(array, callback){
-//     // YOUR CODE HERE
-//     //
-//     //     var newArray = []
-//     for(var i = 0; i < array.length; i++) {
-//         newArray.push(callback(array[i]))
-//     }
-//     return newArray
-// }
+function map(array, callback){
+    // YOUR CODE HERE
+    //
+    //     var newArray = []
+    for(var i = 0; i < array.length; i++) {
+        newArray.push(callback(array[i]))
+    }
+    return newArray
+}
 
-// // tests
-// // ---
-// var squares = map([1, 2, 3, 4], function(v){ return v*v })
-// console.assert(squares[0] === 1)
-// console.assert(squares[1] === 4)
-// console.assert(squares[2] === 9)
-// console.assert(squares[3] === 16)
+// tests
+// ---
+var squares = map([1, 2, 3, 4], function(v){ return v*v })
+console.assert(squares[0] === 1)
+console.assert(squares[1] === 4)
+console.assert(squares[2] === 9)
+console.assert(squares[3] === 16)
 
 // ----------------------------
 // write your own filter()
 // that takes an array and a function
 // ----------------------------
 
-// function filter(array, callback){
-//     // YOUR CODE HERE
-//     var evenArray =[]
-//     for(var i = 0; i < array.length; i++) {
-//         if(array[i]%2 === 0) {
-//             var even = array[i]
-//             evenArray.push(even)
-//         }
-//     }
-//     return evenArray
-// }
+function filter(array, callback){
+    // YOUR CODE HERE
+    var evenArray =[]
+    for(var i = 0; i < array.length; i++) {
+        if(array[i]%2 === 0) {
+            var even = array[i]
+            evenArray.push(even)
+        }
+    }
+    return evenArray
+}
 
-// // tests
-// // ---
-// var evens = filter([1, 2, 3, 4], function(v){ return v%2 === 0 })
-// console.assert(evens[0] === 2)
-// console.assert(evens[1] === 4)
+// tests
+// ---
+var evens = filter([1, 2, 3, 4], function(v){ return v%2 === 0 })
+console.assert(evens[0] === 2)
+console.assert(evens[1] === 4)
 
 
 // ----------------------------
@@ -128,15 +133,24 @@ var customers = [
     { first: 'Jack', last: 'White'}
 ]
 
-var results = customers
-    .filter(function(){
-        // YOUR CODE HERE
+var results = customers.filter(function(customer){
+    return customer.first.substr(0,1) === 'J'
+
     })
-    .map(function(){
-        // YOUR CODE HERE
+
+    .map(function(customer) {
+        customer['fullname'] = customer.first + " " + customer.last
+        return customer
     })
-    .sort(function(){
-        // YOUR CODE HERE
+
+    .sort(function(a,b){
+        if (a.fullname > b.fullname){
+            return 1
+        }
+        else if (a.fullname < b.fullname){
+            return -1
+        }
+        return 0
     })
 
 // tests
