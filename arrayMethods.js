@@ -65,23 +65,23 @@ console.assert(
 // that takes an array and a function
 // ----------------------------
 
-function filter(array, callback){
-    // YOUR CODE HERE
-    var evenArray =[]
-    for(var i = 0; i < array.length; i++) {
-        if(array[i]%2 === 0) {
-            var even = array[i]
-            evenArray.push(even)
-        }
-    }
-    return evenArray
-}
+// function filter(array, callback){
+//     // YOUR CODE HERE
+//     var evenArray =[]
+//     for(var i = 0; i < array.length; i++) {
+//         if(array[i]%2 === 0) {
+//             var even = array[i]
+//             evenArray.push(even)
+//         }
+//     }
+//     return evenArray
+// }
 
-// tests
-// ---
-var evens = filter([1, 2, 3, 4], function(v){ return v%2 === 0 })
-console.assert(evens[0] === 2)
-console.assert(evens[1] === 4)
+// // tests
+// // ---
+// var evens = filter([1, 2, 3, 4], function(v){ return v%2 === 0 })
+// console.assert(evens[0] === 2)
+// console.assert(evens[1] === 4)
 
 
 // ----------------------------
@@ -97,7 +97,14 @@ var people = [
 ]
 
 people.sort(function(a, b){
-    // YOUR CODE HERE
+    if(a.name > b.name){
+       return 1
+   }
+   else if (a.name < b.name){
+       return -1
+   }
+
+    return 0
 })
 
 // tests
