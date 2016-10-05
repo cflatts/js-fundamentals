@@ -1,11 +1,12 @@
 // PART 0: Write a function called squareDance() that squares each number in an array.
 //
 
-var squareDance = function(number) {
+var squareDance = function(inputNum) {
     var newArray = []
-    for(var i = 0; i < number.length; i++) {
-        var newArray = number[i]*number[i]
-        }return newArray
+    for(var i = 0; i < inputNum.length; i++) {
+        newArray[i] = inputNum[i] * inputNum[i]
+    }
+    return newArray
 }
 
 
@@ -17,21 +18,21 @@ console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
 
-// var nicer = function(input) {
-//  var meanArray = input.split(' ')
-//  // log(meanArray)
-//  for(var i = 0; i < meanArray.length; i++) {
-//   if(meanArray[i] !== 'heck' || meanArray[i] !== 'darn' || meanArray[i] !== 'crappy' || meanArray[i] !== 'dang') {
-//    var niceArray = meanArray.splice()
-//    log(niceArray)
-//   }
-//  }
-// }
+var nicer = function(input) {
+ var meanArray = input.split(' ')
+ // log(meanArray)
+ for(var i = 0; i < meanArray.length; i++) {
+  if(meanArray[i] !== 'heck' || meanArray[i] !== 'darn' || meanArray[i] !== 'crappy' || meanArray[i] !== 'dang') {
+   var niceArray = meanArray.splice()
+   log(niceArray)
+  }
+ }
+}
 
 
-// console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
+console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
 
-// console.assert(nicer("here son, your crappy sandwich is on the dang plate.") === "here son, your sandwich is on the plate.")
+console.assert(nicer("here son, your crappy sandwich is on the dang plate.") === "here son, your sandwich is on the plate.")
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
 
