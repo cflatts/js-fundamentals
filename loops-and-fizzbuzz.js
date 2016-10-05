@@ -74,7 +74,7 @@ var reverse = function (inputString) {
     var backwardsInput = ''
     for(var i = inputString.length - 1; i >= 0; i--) {
         backwardsInput = backwardsInput + inputString[i]
-        log(backwardsInput)
+        console.log(backwardsInput)
     }
     return backwardsInput
 }
@@ -97,7 +97,7 @@ var fizzbuzz = function (inputString) {
         if(i % 3 !== 0 && i % 5 !== 0) {
            var symbol = '.'
         } else if(i % 3 === 0 && i % 5 !== 0) {
-            varsymbol = 'fizz'
+            var symbol = 'fizz'
         } else if(i % 3 !== 0 && i % 5 === 0) {
            var symbol = 'buzz'
         } else {
@@ -131,7 +131,7 @@ var findLongestWord = function(inputString) {
     } else {
         var max = inputArray[1]
     }
-    log(max)
+    console.log(max)
 
     for(var i = 2; i < inputArray.length; i++) {
         var maxWord = inputArray[i]
