@@ -74,7 +74,6 @@ var reverse = function (inputString) {
     var backwardsInput = ''
     for(var i = inputString.length - 1; i >= 0; i--) {
         backwardsInput = backwardsInput + inputString[i]
-        console.log(backwardsInput)
     }
     return backwardsInput
 }
@@ -131,7 +130,6 @@ var findLongestWord = function(inputString) {
     } else {
         var max = inputArray[1]
     }
-    console.log(max)
 
     for(var i = 2; i < inputArray.length; i++) {
         var maxWord = inputArray[i]
@@ -152,6 +150,14 @@ PART 6 *
 write a function that returns the Greatest Common Denominator of two numbers
 - if no GCD exists, return 1 */
 
+var GCD = function(num1, num2) {
+    if(!num2) {
+        return num1
+    }
+    else {
+        return GCD(num2, num1 % num2)
+    }
+}
 
 
 console.assert(GCD(5,1) === 1);
