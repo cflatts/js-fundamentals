@@ -18,15 +18,16 @@ console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
 
-var nicer = function(input) {
- var meanArray = input.split(' ')
- // log(meanArray)
- for(var i = 0; i < meanArray.length; i++) {
-  if(meanArray[i] !== 'heck' || meanArray[i] !== 'darn' || meanArray[i] !== 'crappy' || meanArray[i] !== 'dang') {
-   var niceArray = meanArray.splice()
-   log(niceArray)
-  }
- }
+var nicer = function(inputString) {
+    var inputArray = inputString.split(' ')
+    var niceArray = []
+    for(var i = 0; i < inputArray.length; i++) {
+        if(inputArray[i] !== 'heck' && inputArray[i] !== 'darn' && inputArray[i] !== 'crappy' && inputArray[i] !== 'dang') {
+         niceArray.push(inputArray[i])
+         }
+    }
+    var niceString = niceArray.join(' ')
+    return niceString
 }
 
 
@@ -45,7 +46,7 @@ var capitalizeAll = function(string) {
 }
 
 
-log(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
+console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 
 
@@ -53,18 +54,17 @@ log(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
 
-var properSentences = function(paragraph) {
- var brokenPeriods = paragraph.split('. ')
- // log(brokenPeriods)
-    for(var i = 0; i < brokenPeriods.length; i++) {
-        var upperCase = brokenPeriods[i].substr(0,1).toUpperCase()
-        // log(upperCase)
-        var allUpperCase = upperCase + brokenPeriods[i].substr(1)
-        log(allUpperCase)
-        // log(typeof allUpperCase)
-    } return allUpperCase
+var properSentences = function(inputString) {
+    var inputArray = inputString.split('. ')
+    var outputString = ''
+    for(var i = 0; i < inputArray.length; i++) {
+        var capLetter = inputArray[i].substr(0,1).toUpperCase()
+        var stringPart = inputArray[i].slice(1)
+        var capString = capLetter + stringPart
+        outputString = outputString + capString + '. '
+    }
+    return outputString.slice(0, outputString.length - 2)
 }
-
 
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
