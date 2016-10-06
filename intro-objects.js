@@ -218,6 +218,19 @@ console.assert(reversed['2b'] === 'apartment_no')
 var users = [{obama: 'president@gmail.com',hobby: 'basketball'},{trump: 'americamoneywin@yahoo.com', hobby:'dealmaking'},{bush: 'jeb!@hotmail.com',hobby:'portraiture'}]
 // should yield: [{'president@gmail.com': 'obama',basketball: 'hobby'}, ....]
 
+var reverseObjects = function(inputArray) {
+    var flippedArray = []
+    for(var i = 0; i < inputArray.length; i++) {
+        var reversedObj = {}
+        var object = inputArray[i]
+        for(var key in object) {
+            reversedObj[object[key]] = key
+        }
+        flippedArray.push(reversedObj)
+    }
+    return flippedArray
+}
+
 var flippedUsers = reverseObjects(users)
 
 console.assert(flippedUsers[0]['president@gmail.com'] === 'obama')
