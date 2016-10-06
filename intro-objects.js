@@ -88,6 +88,15 @@ console.assert(dog.name === 'carl')
 // return a new version of that string where the first letter of every word is replaced
 // with the letter 'r'.
 
+dog.speak = function(inputString) {
+    var inputArr = inputString.split(' ')
+    // log(inputArr)
+    for(var i = 0; i < inputArr.length; i++) {
+        inputArr[i] = 'r' + inputArr[i].substr(1)
+        var dogString = inputArr.join(' ')
+    }
+    return dogString
+}
 
 console.assert(dog.speak('i love you') === 'r rove rou')
 console.assert(dog.speak('so hungry') === 'ro rungry')
@@ -110,6 +119,14 @@ var stooges = [
     {name: 'larry', age: 50},
     {name: 'curly', age: 60}
 ]
+
+var pluck = function(inputArr, inputProp) {
+    var value = []
+    for(var i = 0; i < inputArr.length; i++) {
+        value.push(inputArr[i][inputProp])
+    }
+    return value
+}
 
 
 console.assert(pluck(stooges, 'name')[0] === 'moe')
