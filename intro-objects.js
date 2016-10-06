@@ -17,12 +17,15 @@ var tile = {
     color: "blue"
 }
 
-var flipColor = function (inputObject) {
-    if(inputObject['color'] === 'blue') {
-        inputObject['color'] = 'red'
-    } else {
-        inputObject['color'] = 'blue'
-    } return inputObject
+var getFullNames = function(inputArr) {
+    var fullNamesArr =[]
+    for(var i = 0; i < inputArr.length; i++) {
+        var firstName = inputArr[i].first
+        var lastName = inputArr[i].last
+        var fullName = firstName + ' ' + lastName
+        fullNamesArr.push(fullName)
+    }
+    return fullNamesArr
 }
 
 var tile2 = flipColor(tile)
@@ -49,8 +52,6 @@ var getFullNames = function (splitNamesArray) {
         var namePart = splitNamesArray[i]
         var fullNamesStrings = namePart['first'] + ' ' + namePart['last']
         fullNamesArray.push(fullNamesStrings)
-        log(fullNamesArray)
-        // fullNames
     } return fullNamesArray
 }
 
@@ -75,11 +76,11 @@ var generateDog = function (inputName) {
 
 var dog = generateDog('rex')
 
-log(dog.legs === 4)
-log(dog.name === 'rex')
+console.assert(dog.legs === 4)
+console.assert(dog.name === 'rex')
 
 var dog = generateDog('carl')
-log(dog.name === 'carl')
+console.assert(dog.name === 'carl')
 
 
 // Give the dog a method called .speak(). speak() should receive a string as input and
@@ -247,5 +248,5 @@ var helloWorld = function() {
 }
 
 var personalizedResult = politeObject.personalize(helloWorld)
-console.assert(personalizedResult === "Hi, my name is Frank, and the
+console.assert(personalizedResult === "Hi, my name is Frank, and the \
     result is hello world.")
