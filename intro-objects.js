@@ -302,7 +302,10 @@ console.assert(midcentury.length === 2)
 // exactly how you should write the method. Including the period!
 
 var politeObject = {
-    name: "Frank"
+    name: "Frank",
+    personalize: function(inputFunc) {
+        return 'Hi, my name is ' + this.name + ',' + ' and the result is ' +        inputFunc() + '.'
+    }
 }
 
 var helloWorld = function() {
